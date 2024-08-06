@@ -28,10 +28,12 @@ public class HomePage {
 
 	@FindBy(css = "div.shopping_cart_container")
 	WebElement shoppingCart;
-	
-	@FindBy(css=".fa-layers-counter.shopping_cart_badge")
-	WebElement cartcounter;
 
+	
+	
+	@FindBy(css=".shopping_cart_badge")
+	WebElement shoppingflyCounter;
+	
 	public HomePage() {
 
 		PageFactory.initElements(driver, this);
@@ -40,30 +42,33 @@ public class HomePage {
 
 	public String verifyHomePage() {
 		String productText = producttitle.getText();
+		
 		return productText;
 
 	}
 
 	public void getProduct() {
-		
-	String[] itemsNeeded={"Sauce Labs Backpack","Sauce Labs Bike Light"};
 
+		String[] itemsNeeded = { "Sauce Labs Backpack", "Sauce Labs Bike Light" };
+         
+
+		int j=0;
 		for (int i = 0; i < productlist.size(); i++) {
 
-			
-			
 			String productsnames = productlist.get(i).getText();
-			
-			List<String> itemsneededList=Arrays.asList(itemsNeeded);
-	
 
+			List<String> itemsneededList = Arrays.asList(itemsNeeded);
+
+			
 			if (itemsneededList.contains(productsnames)) {
 
-				String initialText = ATCbutton.getText();
-
 				ATCbutton.click();
-
-				String newText = ATCbutton.getText();
+				
+				j++;
+				
+				if(j==itemsNeeded.length) {
+					break;
+				}
 
 			}
 
@@ -73,7 +78,11 @@ public class HomePage {
 
 	public void addToshoppingCart() {
 		shoppingCart.click();
-		
+
 	}
+	
+	public void shoppingFlyCounter() {
+	}
+	
 
 }

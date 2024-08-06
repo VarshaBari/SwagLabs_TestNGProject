@@ -53,5 +53,11 @@ public class LoginPage {
 		return ActMsg;
 	}
 	
+/*	public void goTo() {
+		
+		driver.get(" https://www.saucedemo.com/v1/index.html");
+		
+	} */
+	
 
 }

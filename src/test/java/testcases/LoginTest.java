@@ -15,6 +15,7 @@ public class LoginTest extends BaseClass {
 
 		LoginPage lp = new LoginPage();
 		HomePage hp = new HomePage();
+	
 		lp.LoginFunction("standard_user", "secret_sauce");
 		String text = hp.verifyHomePage();
 		// System.out.println(text);
